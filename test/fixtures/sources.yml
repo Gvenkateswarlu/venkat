@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  line: 1
+  type: 
+  massege: MyText
+
+two:
+  line: 1
+  type: 
+  massege: MyText
