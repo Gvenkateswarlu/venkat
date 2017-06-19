@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  petrollbunk: 1
+  petrolltank: 1
+
+two:
+  petrollbunk: 1
+  petrolltank: 1

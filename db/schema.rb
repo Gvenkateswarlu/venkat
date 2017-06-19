@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523152653) do
+ActiveRecord::Schema.define(version: 20170524081715) do
 
   create_table "cars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "modelno"
     t.string "coller"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "company_id"
   end
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -29,17 +30,39 @@ ActiveRecord::Schema.define(version: 20170523152653) do
 
   create_table "papers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "number"
-    t.string "type"
+    t.string "modeltype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "petrollbunks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "noofpump"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "petrollbunks_petrolltanks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "petrolltank_id"
+    t.bigint "petrollbunk_id"
+    t.index ["petrollbunk_id"], name: "index_petrollbunks_petrolltanks_on_petrollbunk_id"
+    t.index ["petrolltank_id"], name: "index_petrollbunks_petrolltanks_on_petrolltank_id"
+  end
+
+  create_table "petrolltanks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.integer "lit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sources", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "line"
-    t.string "type"
+    t.string "modeltype"
     t.text "massege"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "paper_id"
   end
 
 end
